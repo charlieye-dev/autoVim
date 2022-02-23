@@ -34,12 +34,22 @@ for dep in ${DEPENDENCIES[@]}
 do
 	which $dep &>/dev/null
 	if [ x$? != x0 ]; then
+        if [ $(id -u) != 0 ]; then
+            echo "${RED}ERROR${NC} it should under root privileges."
+            exit 1
+        fi
+
 		echo "[${GREEN}INFO${NC}] install '$dep'"
 
-		if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-			sudo apt-get install -y $dep
+		if [[ "$OSTYPE" = "linux-gnu"* ]]; then
+            OS_ID=$(awk -F= '/^ID/{print $2}' /etc/os-release | head -n 1)
+            if [[ "$OS_ID" == *"ubuntu"* ]]; then
+			    apt-get install -y $dep
+            elif [[ "$OS_ID" == *"centos"* ]]; then
+			    yum install -y $dep
+            fi
 		elif [[ "$OSTYPE" == "darwin"* ]]; then
-			sudo brew install -y $dep
+			brew install -y $dep
 		fi
 		returnCheck
 	fi
