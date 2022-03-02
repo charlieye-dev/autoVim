@@ -13,12 +13,13 @@ declare -a DEPENDENCIES=("curl"
 			)
 
 declare -a PLUGSRC=("https://github.com/scrooloose/nerdtree.git"
-		    "https://github.com/jlanzarotta/bufexplorer.git"
-		    "https://github.com/vim-scripts/taglist.vim.git"
-		    "https://github.com/ntpeters/vim-better-whitespace.git"
-		    "https://github.com/vim-scripts/vsearch.vim.git"
-		    "https://github.com/zxqfl/tabnine-vim.git"
-		    "https://github.com/mileszs/ack.vim.git"
+                    "https://github.com/jlanzarotta/bufexplorer.git"
+                    "https://github.com/vim-scripts/taglist.vim.git"
+                    "https://github.com/ntpeters/vim-better-whitespace.git"
+                    "https://github.com/vim-scripts/vsearch.vim.git"
+                    "https://github.com/zxqfl/tabnine-vim.git"
+                    "https://github.com/mileszs/ack.vim.git"
+                    "https://github.com/vim-airline/vim-airline.git"
 		   )
 
 function returnCheck() {
@@ -106,6 +107,14 @@ $NULLLINE
 noremap to :NERDTree<CR>
 noremap tq :NERDTreeClose<CR>
 noremap tp :NERDTreeFind<CR>
+EOF
+
+cat <<EOF >> $CONFIG
+$NULLLINE
+"Airline"
+let g:airline#extensions#tabline#enabled = 1"
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 EOF
 
 cat <<EOF >> $CONFIG

@@ -1,8 +1,8 @@
-# AutoVim
+# autoVim
 
 ![logo](./images/logo.png)
 
-**AutoVim** is a tool helps to configure **vim** automatically.
+**autoVim** is a tool helps to configure **vim** automatically.
 
 [![Build Status](https://travis-ci.org/yechenglin-dev/AutoVim.svg?branch=master)](https://travis-ci.org/yechenglin-dev/AutoVim)
 
@@ -26,6 +26,7 @@ Following plugins can be configured by default,
 * [VSearch](https://github.com/vim-scripts/vsearch.vim.git)
 * [TabNine](https://github.com/zxqfl/tabnine-vim.git)
 * [Ack](https://github.com/mileszs/ack.vim.git)
+* [airline](https://github.com/vim-airline/vim-airline.git)
 
 ## Shortcuts
 
